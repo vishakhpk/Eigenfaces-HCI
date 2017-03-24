@@ -9,7 +9,7 @@ import time
 
 #Original image size is 125 x 94, resizing to 0.4 gives 50 x 37
 #Can also change the other parameter to have more classes but less accuracy
-lfwPeople = fetch_lfw_people(min_faces_per_person=70, resize=0.4)
+lfwPeople = fetch_lfw_people(min_faces_per_person=50, resize=0.4)
 
 nSamples, h, w = lfwPeople.images.shape
 
@@ -26,11 +26,13 @@ print "Height - ",h
 print "Width - ",w
 print "Features in Dataset - ",nFeatures
 print "No. of class labels - ", nClasses
-
+for i in targetNames:
+	if i=="Lionel Messi":
+		print i
 
 trainX, testX, trainY, testY = train_test_split(X, Y, test_size=0.25)
 
-nComponents = 150
+nComponents = 250
 
 print "Extracting the top ",nComponents," components from ",trainX.shape[0]," faces"
 startTime = time.time()
