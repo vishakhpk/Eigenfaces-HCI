@@ -5,7 +5,7 @@ from sklearn.metrics import confusion_matrix
 from sklearn.grid_search import GridSearchCV
 from sklearn.decomposition import PCA
 from sklearn.svm import SVC
-import time 
+import time
 
 #Original image size is 125 x 94, resizing to 0.4 gives 50 x 37
 #Can also change the other parameter to have more classes but less accuracy
@@ -20,8 +20,8 @@ Y = lfwPeople.target
 targetNames = lfwPeople.target_names
 nClasses = targetNames.shape[0]
 
-print "Dataset Summary: " 
-print "No. of samples - ",nSamples 
+print "Dataset Summary: "
+print "No. of samples - ",nSamples
 print "Height - ",h
 print "Width - ",w
 print "Features in Dataset - ",nFeatures
@@ -55,7 +55,7 @@ param_grid = {'C': [1e3, 5e3, 1e4, 5e4, 1e5],
 clf = GridSearchCV(SVC(kernel='rbf', class_weight='balanced'), param_grid)
 clf = clf.fit(trainXPCA, trainY)
 print "Completed in ",(time.time() - startTime)
-print "Best estimator found by grid search:" 
+print "Best estimator found by grid search:"
 print clf.best_estimator_
 
 
@@ -66,6 +66,3 @@ print "Completed in ",(time.time() - startTime)
 
 print (classification_report(testY, predictions, target_names=targetNames))
 print (confusion_matrix(testY, predictions, labels=range(nClasses)))
-
-
-
