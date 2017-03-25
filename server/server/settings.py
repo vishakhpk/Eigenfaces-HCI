@@ -73,6 +73,8 @@ WSGI_APPLICATION = 'server.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/1.10/ref/settings/#databases
 
+DATA_UPLOAD_MAX_MEMORY_SIZE = 10485760
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
