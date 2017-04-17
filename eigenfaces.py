@@ -32,7 +32,7 @@ for i in targetNames:
 
 trainX, testX, trainY, testY = train_test_split(X, Y, test_size=0.25)
 
-nComponents = 250
+nComponents = 50
 
 print "Extracting the top ",nComponents," components from ",trainX.shape[0]," faces"
 startTime = time.time()
